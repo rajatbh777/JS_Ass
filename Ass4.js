@@ -14,12 +14,12 @@ const sortObjectArray = function(json,key){
   this._key=key;
   this.getSortedArray = function(){
         
-        return this.originalArray.sort( (a,b)=>{
-         if(isNaN(Number(a[_key]))){
-          return a[_key].localeCompare(b[_key]);
+        return this.originalArray[0].sort( (a,b)=>{
+         if(isNaN(Number(a[key]))){
+          return a[key].localeCompare(b[key]);
           }
           else{
-          return Number(a[_key])-Number(b[_key]);
+          return Number(a[key])-Number(b[key]);
           } 
          
        })
