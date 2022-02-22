@@ -1,4 +1,4 @@
-const sortArray = function(...input){
+function sortArray(...input){
     
     this.originalArray=input;
     
@@ -8,18 +8,17 @@ const sortArray = function(...input){
     
 };
 
-const sortObjectArray = function(json,key){
-    sortArray.call(this,json);
-    
-  this._key=key;
-  this.getSortedArray = function(){
+function sortObjectArray(json,key){
+    sortArray.call(this,json,key);
+
+    this.getSortedArray = function(){
         
         return this.originalArray[0].sort( (a,b)=>{
-         if(isNaN(Number(a[key]))){
-          return a[key].localeCompare(b[key]);
+         if(isNaN(Number(a[this.originalArray[1]]))){
+          return a[this.originalArray[1]].localeCompare(b[this.originalArray[1]]);
           }
           else{
-          return Number(a[key])-Number(b[key]);
+          return Number(a[this.originalArray[1]])-Number(b[this.originalArray[1]]);
           } 
          
        })
